@@ -1,9 +1,9 @@
-# Copyright (c) 2024 Nordic Semiconductor ASA
+# Copyright (c) 2026 Nordic Semiconductor ASA
 # SPDX-License-Identifier: Apache-2.0
 
-description: Nordic TDM (Time division multiplexed audio interface) based on HAL
+description: Nordic TDM (Time division multiplexed audio interface) based on nrfx
 
-compatible: "nordic,nrf-tdm"
+compatible: "nordic,nrfx-tdm"
 
 include: [i2s-controller.yaml, pinctrl-device.yaml, nordic-clockpin.yaml, "memory-region.yaml"]
 
