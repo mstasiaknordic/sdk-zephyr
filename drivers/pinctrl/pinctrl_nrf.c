@@ -106,7 +106,7 @@ static const nrf_gpio_pin_drive_t drive_modes[NRF_DRIVE_COUNT] = {
 #endif
 #endif
 
-#if DT_HAS_COMPAT_STATUS_OKAY(nordic_nrf_tdm)
+#if DT_HAS_COMPAT_STATUS_OKAY(nordic_nrf_tdm) || defined(CONFIG_NRFX_TDM)
 #define NRF_PSEL_TDM(reg, line) ((NRF_TDM_Type *)reg)->PSEL.line
 #endif
 

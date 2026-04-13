@@ -31,7 +31,7 @@ config I2S_NRFX_ALLOW_MCK_BYPASS
 endif # I2S_NRFX
 
 menuconfig I2S_NRF_TDM
-	bool "nRF TDM driver"
+	bool "nRF TDM driver based on HAL"
 	default y
 	depends on DT_HAS_NORDIC_NRF_TDM_ENABLED
 	select CLOCK_CONTROL
@@ -39,7 +39,17 @@ menuconfig I2S_NRF_TDM
 	help
 	  Enable support for TDM driver for nRF MCU series.
 
-if I2S_NRF_TDM
+menuconfig I2S_NRFX_TDM
+	bool "nRF TDM driver based on nrfx"
+	default y
+	depends on DT_HAS_NORDIC_NRFX_TDM_ENABLED
+	select NRFX_TDM
+	select CLOCK_CONTROL
+	select PINCTRL
+	help
+	  Enable support for TDM driver for nRF MCU series.
+
+if I2S_NRF_TDM || I2S_NRFX_TDM
 
 config I2S_NRF_TDM_RX_BLOCK_COUNT
 	int "RX queue length"
@@ -49,4 +59,4 @@ config I2S_NRF_TDM_TX_BLOCK_COUNT
 	int "TX queue length"
 	default 4
 
-endif # I2S_NRF_TDM
+endif # I2S_NRF_TDM || I2S_NRFX_TDM
